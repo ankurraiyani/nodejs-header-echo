@@ -1,0 +1,15 @@
+{
+  "kind": "Route",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "header-test-route"
+  },
+  "id": "header-test-route",
+  "spec": {
+    "host": "header.test",
+    "to": {
+      "kind": "Service",
+      "name": "header-test"
+    }
+  }
+}
