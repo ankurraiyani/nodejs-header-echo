@@ -1,14 +1,14 @@
-var http = require('http');
-var util = require('util');
+var fs    = require('fs');
+var http  = require('http');
+var https = require('https');
+var util  = require('util');
 
-/*!  Constants for port.  */
-var PORT = process.env.PORT || 8080;
+/*!  Constants for insecure/secure ports.  */
+var INSECURE_PORT = process.env.INSECURE_PORT || 8080;
+var SECURE_PORT   = process.env.SECURE_PORT   || 8443;
 
 
-/**
- *   main(): create a server w/ a request handler that just dumps headers.
- */
-var server = http.createServer(function(req, res) {
+function handler(req, res) {
    var data = [ ];
    for (var k in req.headers) {
      var v = new Buffer(req.headers[k], 'utf-8');
@@ -16,10 +16,26 @@ var server = http.createServer(function(req, res) {
    }
 
    res.end(util.format('<pre>\n%s\n</pre>\n', data.join('\n')) );
+
+}  /*  End of function  handler.  */
+
+
+/**
+ *   main(): create servers w/ that use to the handler to just dump headers.
+ */
+var insecureServer = http.createServer(handler);
+insecureServer.listen(INSECURE_PORT, function() {
+  console.log('server listening on port %d ... ', INSECURE_PORT);
 });
 
 
-server.listen(PORT, function() {
-  console.log('server listening on port %d ... ', PORT);
+var options = {
+  key:  fs.readFileSync("config/key.pem"),
+  cert: fs.readFileSync("config/cert.pem")
+};
+
+var secureServer = https.createServer(options, handler);
+secureServer.listen(SECURE_PORT, function() {
+  console.log('server listening on port %d ... ', SECURE_PORT);
 });
 

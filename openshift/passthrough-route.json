@@ -1,0 +1,19 @@
+{
+  "kind": "Route",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "header-test-passthrough"
+  },
+  "id": "header-test-passthrough",
+  "type": "edge",
+  "spec": {
+    "host": "passthrough.header.test",
+    "to": {
+      "kind": "Service",
+      "name": "header-test-secure"
+    },
+    "tls": {
+      "termination": "passthrough"
+    }
+  }
+}

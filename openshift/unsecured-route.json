@@ -6,10 +6,10 @@
   },
   "id": "header-test-route",
   "spec": {
-    "host": "header.test",
+    "host": "unsecure.header.test",
     "to": {
       "kind": "Service",
-      "name": "header-test"
+      "name": "header-test-insecure"
     }
   }
 }

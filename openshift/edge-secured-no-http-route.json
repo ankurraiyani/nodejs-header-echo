@@ -7,10 +7,10 @@
   "id": "header-test-http-disable",
   "type": "edge",
   "spec": {
-    "host": "header.test",
+    "host": "no-http.header.test",
     "to": {
       "kind": "Service",
-      "name": "header-test"
+      "name": "header-test-insecure"
     },
     "tls": {
       "termination": "edge",
