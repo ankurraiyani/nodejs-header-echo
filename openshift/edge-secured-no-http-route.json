@@ -5,7 +5,6 @@
     "name": "header-test-http-disable"
   },
   "id": "header-test-http-disable",
-  "type": "edge",
   "spec": {
     "host": "no-http.header.test",
     "to": {
