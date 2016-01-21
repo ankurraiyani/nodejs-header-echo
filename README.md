@@ -4,11 +4,14 @@ Node.js header echo test service
 
 Build Docker Image:
 -------------------
-Test service that echoes back the HTTP headers showcasing different routes supported on OpenShift.
+Test service that echoes back the HTTP headers showcasing different routes
+supported on OpenShift.
 
 To build the docker image, run ```make```:
 
     $  make   #  or make build
+
+Note: Running make will also generate the TLS config used in the tests.
 
 
 Usage with docker:
@@ -43,6 +46,9 @@ above.
     $  for f in openshift/*route.json ; do
          oc create -f "$f";
          done
+
+    $  # Re-encrypt is a lil' bit different in that we need the destCA
+    $  # see: http://www.ulduzsoft.com/2012/01/creating-a-certificate-authority-and-signing-the-ssl-certificates-using-openssl/  for details
 
     $  oc get routes
 

@@ -8,6 +8,7 @@ build:	tlsconfig
 	docker build -t $(IMAGE) ./
 
 run:
+	@echo "  - Starting docker container for image $(IMAGE) ... "
 	docker run -d -i -t $(IMAGE)
 
 clean:
