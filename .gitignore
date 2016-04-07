@@ -29,3 +29,6 @@ node_modules
 #  Generated TLS config files
 config/*.csr
 config/*.pem
+config/CA/*.pem
+config/CA/index.txt*
+config/CA/serial*
