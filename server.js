@@ -9,6 +9,12 @@ var SECURE_PORT   = process.env.SECURE_PORT   || 8443;
 
 
 function handler(req, res) {
+   if ('/503' === req.url) {
+     res.statusCode = 503;
+     res.end('<pre>\ncustom 503 error page\n</pre>\n');
+     return;
+   }
+
    var data = [ ];
    for (var k in req.headers) {
      var v = new Buffer(req.headers[k], 'utf-8');
