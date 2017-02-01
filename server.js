@@ -36,8 +36,8 @@ insecureServer.listen(INSECURE_PORT, function() {
 
 
 var options = {
-  key:  fs.readFileSync("config/key.pem"),
-  cert: fs.readFileSync("config/cert.pem")
+  key:  fs.readFileSync("config/tls.key"),
+  cert: fs.readFileSync("config/tls.cert")
 };
 
 var secureServer = https.createServer(options, handler);

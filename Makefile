@@ -28,16 +28,24 @@ clean:
 #  Internal targets.
 tlsconfig:	cacertconfig certconfig
 
-cacertconfig:	config/cacert.pem config/cakey.pem
-certconfig:	config/cert.pem config/key.pem
+certconfig:	config/tls.crt config/tls.key
+cacertconfig:	config/CA/cacert.pem config/CA/cakey.pem
+
+config/tls.crt:	config/cert.pem
+	(cd config; ln -s cert.pem tls.crt)
+
+config/tls.key:	config/key.pem
+	(cd config; ln -s key.pem tls.key)
 
 config/cert.pem:	config/key.pem
-config/cacert.pem:	config/cakey.pem
 
 config/key.pem:
 	./config/generate-tls-config.sh
 
-config/cakey.pem:
+
+config/CA/cacert.pem:	config/CA/cakey.pem
+
+config/CA/cakey.pem:
 	./config/generate-tls-config.sh
 
 .PHONY: 	clean

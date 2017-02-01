@@ -1,0 +1,18 @@
+{
+  "kind": "Route",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "example-route"
+  },
+  "id": "e2e-route2",
+  "spec": {
+    "host": "www.example2.com",
+    "to": {
+      "kind": "Service",
+      "name": "header-test-insecure"
+    },
+    "tls": {
+      "termination": "edge"
+    }
+  }
+}

@@ -29,6 +29,11 @@ node_modules
 #  Generated TLS config files
 config/*.csr
 config/*.pem
+config/tls.crt
+config/tls.key
 config/CA/*.pem
 config/CA/index.txt*
 config/CA/serial*
+
+#  Private routes.
+openshift/.private
