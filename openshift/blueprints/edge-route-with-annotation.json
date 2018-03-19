@@ -1,0 +1,21 @@
+{
+  "kind": "Route",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "blueprint-annotated-https",
+    "annotations": {
+	"router.openshift.io/cookie_name": "empire"
+    }
+  },
+  "id": "blueprint-annotated-https",
+  "spec": {
+    "host": "annotated.blueprints.org",
+    "to": {
+      "kind": "Service",
+      "name": "header-test-insecure"
+    },
+    "tls": {
+      "termination": "edge"
+    }
+  }
+}
