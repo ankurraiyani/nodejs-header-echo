@@ -1,0 +1,21 @@
+{
+  "kind": "Route",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "header-test-annotated-reencrypt",
+    "annotations": {
+       "foo": "bar"
+    }
+  },
+  "id": "header-test-annotated-reencrypt",
+  "spec": {
+    "host": "annotated.reencrypt.header.test",
+    "to": {
+      "kind": "Service",
+      "name": "header-test-secure"
+    },
+    "tls": {
+      "termination": "reencrypt"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "kind": "Route",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "header-test-annotated-ok-https",
+    "annotations": {
+	"some.annotation": "and.its.value"
+    }
+  },
+  "id": "header-test-annotated-ok-https",
+  "spec": {
+    "host": "annotated-ok.header.test",
+    "to": {
+      "kind": "Service",
+      "name": "header-test-insecure"
+    },
+    "tls": {
+      "termination": "edge"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "kind": "Route",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "header-test-annotated-https",
+    "annotations": {
+	"router.openshift.io/cookie_name": "empire"
+    }
+  },
+  "id": "header-test-annotated-https",
+  "spec": {
+    "host": "annotated.header.test",
+    "to": {
+      "kind": "Service",
+      "name": "header-test-insecure"
+    },
+    "tls": {
+      "termination": "edge"
+    }
+  }
+}

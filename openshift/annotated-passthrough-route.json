@@ -1,0 +1,21 @@
+{
+  "kind": "Route",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "header-test-ya-annotated-https",
+    "annotations": {
+	"some.other.annotation.name": "y.a.a.route"
+    }
+  },
+  "id": "header-test-ya-annotated-https",
+  "spec": {
+    "host": "yapt.annotated.header.test",
+    "to": {
+      "kind": "Service",
+      "name": "header-test-secure"
+    },
+    "tls": {
+      "termination": "passthrough"
+    }
+  }
+}
